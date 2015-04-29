@@ -15,13 +15,13 @@
                 controllerAs: 'vm'
             })
             .when('/race', {
-                templateUrl: 'javascripts/app/race/race.html',
-                controller: 'RaceController',
+                templateUrl: 'javascripts/app/ra>/runner.html',
+                controller: 'RunnerController',
                 controllerAs: 'vm'
             })
             .when('/race-legs', {
-                templateUrl: 'javascripts/app/race-legs/race-legs.html',
-                controller: 'RaceLegsController',
+                templateUrl: 'javascripts/app/runners/runner.html',
+                controller: 'RunnerController',
                 controllerAs: 'vm'
             });
     }

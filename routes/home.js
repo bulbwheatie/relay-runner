@@ -6,8 +6,11 @@ router.get('/', restrict, function(req, res, next) {
    var vm = {
        title: 'Home',
        teamName: req.user ? req.user.firstName: null
-   } 
+   } ;
    res.render('home/index', vm);
 });
 
 module.exports = router;
+
+
+

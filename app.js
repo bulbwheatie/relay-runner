@@ -3,10 +3,9 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var  mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var passport = require('passport');
 var expressSession = require('express-session');
-var restrict = require('./auth/restrict');
 var flash = require('connect-flash');
 var connectMongo = require('connect-mongo');
 
@@ -14,6 +13,7 @@ var config = require('./config');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var home = require('./routes/home');
+var api = require('./routes/api');
 
 var MongoStore = connectMongo(expressSession);
 
@@ -51,6 +51,7 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/home', home);
+app.use('/api', api);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

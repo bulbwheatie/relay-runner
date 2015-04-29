@@ -3,7 +3,9 @@ var Schema = mongoose.Schema;
 
 var teamLegSchema = new Schema ({
    leg: {type: Number, required: 'Please specify which leg is being run'},
-   team: {type: Number, required: 'Please provide a team'},
+   team: {type: String, required: 'Please provide a team'},
+   race: {type: String, required: 'Please provide a race'},
+   year: {type: Date, required: 'Please provide a date'},
    runner: {type: Number},
    timeEstimate: {type: Number},
    timeActual: {type: Number},

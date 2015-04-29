@@ -1,4 +1,40 @@
 <p>Here is a list of all your current runners!</p>
+<!--Display a list of runners that have been added -->
+<ul>
+    <li ng-repeat="runner in vm.runners">
+        <strong ng-bind="runner.name"></strong>
+    </li>
+</ul>
+
+<div class="widget">
+    <form name="add-runner" id="add-runner" ng-submit="processForm()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" ng-model="formData.name"/>
+        </div>
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" ng-model="formData.age"/>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <input TYPE="Radio" Name="Gender" Value="Male" ng-model="formData.gender">Male
+            <input TYPE="Radio" Name="Gender" Value="Female" ng-model="formData.gender">Female
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="number" id="phone" name="phone" ng-model="formData.phone"/>
+        </div>
+        <div class="form-submit">
+            <input type="submit" value="Add New Runner" />
+        </div>
+    </form>
+    <div>
+        {{formData}}
+    </div>
+</div>
+
+<!-- Display a form to add new runners --> 
 <a href="#/team">Team</a>
 <a href="#/race">Race Info</a>
 <a href='#/race-legs'>Relay Legs</a>

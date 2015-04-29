@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 var userService = require('../services/user-service');
 
 var userSchema = new Schema({
-    userName: {type: String, required: 'Please enter a user name'},
+    teamName: {type: String, required: 'Please enter a user name'},
     email: {type: String, required: 'Please enter an email'},
     password: {type: String, required: 'Please enter a password'},
     created: {type: Date, default: Date.now}
