@@ -3,7 +3,7 @@ var Runner = require('../models/runner').Runner;
 //Add a new Runner
 exports.addRunner = function(runner, next) {
     var newRunner = new Runner({
-        teamID: 1,
+        teamID: runner.teamID,
         name: runner.name,
         age: runner.age,
         gender: runner.gender,
@@ -15,10 +15,10 @@ exports.addRunner = function(runner, next) {
     newRunner.save(function(err) {
         if (err) {
             console.log(err)
-            return next(err);
+            return next(err, null);
         }
         console.log("Runner save")
-        next(newRunner);
+        next(null, newRunner);
     });
 };
 
@@ -28,6 +28,12 @@ exports.findRunner = function(name, teamID, next) {
         return next(err, currRunner);
     });
 };
+
+exports.findTeamRunners = function(reqTeamID, next) {
+    Runner.find({teamID:reqTeamID}, function(err, runners) {
+        return next(err, runners);
+    })
+}
 
 //Finds all runners for a team
 exports.findAllRunners = function(next) {

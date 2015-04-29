@@ -6,16 +6,20 @@ var relayService = require('../services/relay-service.js');
 
 router.post('/createRunner', restrict, function(req, res, next) {
    console.log("Attempting to add runner");
+   console.log("Team: " + req.user.teamName);
+   console.log("Team: " + req.user._id);
+   req.body.teamID = req.user._id;
    runnerService.addRunner(req.body, function(err, runner) {
       if (err) {
          return err;
       }
+      console.log("Added the runner");
       return res.json(runner);
    });
 });
 
 router.get('/allRunners', restrict, function(req, res, next) {
-   runnerService.findAllRunners(function(err, runners) {
+   runnerService.findTeamRunners(req.user._id, function(err, runners) {
       console.log("Getting runners")
       if(err) {
          console.log(err);

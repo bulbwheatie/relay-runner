@@ -23,8 +23,8 @@
             });
 
         console.log(vm.runners);   
-        $scope.formData = {"teamID": "1"}
         
+        //Should clear form and add new runner temporarily to the list if successful
         $scope.processForm = function() {
             console.log("Form submitted");
               $http({
@@ -34,6 +34,8 @@
                 headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
              })
              .success(function(data){
+                 console.log("Successful post request");
+                 $scope.formData = null;
                  vm.runners.push(data);
                  console.log(data);
              });

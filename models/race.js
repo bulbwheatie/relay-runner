@@ -6,7 +6,8 @@ var raceSchema = new Schema({
    location: {type: String, required: 'Please provide a race location'},
    date: {type: Date, required: 'Please provide a race date'},
    length: {type: Number},
-   website: {type: String}
+   website: {type: String},
+   description: {type:String}
 });
 
 var Race = mongoose.model('Race', raceSchema);
