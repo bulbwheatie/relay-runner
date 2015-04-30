@@ -1,0 +1,38 @@
+<p>This is the admin page to manage race info</p>
+    <!--This form allows an admin to create a new race and the associated race legs -->
+<div class="widget">
+    <form name="add-race" id="add-race" ng-submit="addNewRace()">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" ng-model="raceData.name"/>
+        </div>
+        <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" id="date" name="date" ng-model="raceData.date"/>
+        </div>
+        <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="lcoation" ng-model="raceData.location"/>
+        </div>
+        <div class="form-group">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" ng-model="raceData.website"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" class="text" cols="86" rows ="20" name="description"></textarea>
+        </div>
+        <div class="form-submit">
+            <input type="submit" value="Add New Race" />
+        </div>
+    </form>
+    <div>
+        {{raceData}}
+    </div>
+</div>
+
+<!--TODO: This dropdown allows you to edit an existing race -->
+
+<a href="#/team">Team</a>
+<a href="#/race">Race Info</a>
+<a href='#/race-legs'>Relay Legs</a>

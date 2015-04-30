@@ -15,10 +15,27 @@ exports.addRace = function(race, next) {
     newRace.save(function(err) {
         if (err) {
             console.log(err);
+            return next(err, null);
+        }
+        next(null, newRace);
+    });
+}
+
+exports.addRaceLeg = function(leg, next) {
+    var newLeg = new Leg({
+        race: leg.race,
+        distance: leg.distance,
+        elevation: leg.elevation,
+        order: leg.number
+    });
+    newLeg.save(function(err) {
+        if(err) {
+            console.log(err);
             return next(err);
         }
         next(null);
     });
+    
 }
 
 exports.findRace = function(name, date, next) {

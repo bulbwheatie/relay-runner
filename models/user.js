@@ -6,7 +6,8 @@ var userSchema = new Schema({
     teamName: {type: String, required: 'Please enter a user name'},
     email: {type: String, required: 'Please enter an email'},
     password: {type: String, required: 'Please enter a password'},
-    created: {type: Date, default: Date.now}
+    created: {type: Date, default: Date.now},
+    race: {type: String}
 });
 
 userSchema.path('email').validate(function(value, next) {

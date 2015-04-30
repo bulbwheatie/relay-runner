@@ -23,6 +23,12 @@
                 templateUrl: 'javascripts/app/runners/runner.html',
                 controller: 'RunnerController',
                 controllerAs: 'vm'
+            })
+            .when('/admin', {
+                templateUrl:'javascripts/app/admin/admin.html',
+                controller:'AdminController',
+                controllerAs: 'vm'
             });
+            
     }
 }());

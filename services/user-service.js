@@ -12,6 +12,7 @@ exports.addUser = function(user, next) {
             teamName: user.teamName,
             email: user.email.toLowerCase(),
             password: hash,
+            race: user.race
         });
         
         newUser.save(function(err) {

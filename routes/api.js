@@ -58,4 +58,22 @@ router.get('/raceInfo', restrict, function(req, res, next) {
    })
 })
 
+router.post('/admin/addRace', restrict, function(req, res, next) {
+   console.log("API: ADDRACE");
+   relayService.addRace(req.body, function(err, race) {
+      if (err) {
+         return err;
+      }
+      return res.json(race);
+   });
+})
+
+router.post('/admin/addRaceLeg', restrict, function(req, res, next) {
+   relayService.addRaceLet(req.body, function(err, leg) {
+      if(err) {
+         return err;
+      }
+      return res.json(leg);
+   });
+})
 module.exports = router;
