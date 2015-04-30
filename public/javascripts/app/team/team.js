@@ -38,6 +38,9 @@
                  $scope.formData = null;
                  vm.runners.push(data);
                  console.log(data);
+             })
+             .error(function(err) {
+                 console.log(err);
              });
         };
     }

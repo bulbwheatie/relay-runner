@@ -22,8 +22,9 @@ exports.addRace = function(race, next) {
 }
 
 exports.addRaceLeg = function(leg, next) {
+    console.log("Adding new race leg with race id " + leg.race);
     var newLeg = new Leg({
-        race: leg.race,
+        raceId: leg.race,
         distance: leg.distance,
         elevation: leg.elevation,
         order: leg.number
@@ -31,11 +32,17 @@ exports.addRaceLeg = function(leg, next) {
     newLeg.save(function(err) {
         if(err) {
             console.log(err);
-            return next(err);
+            return next(err, null);
         }
-        next(null);
+        next(null, newLeg);
     });
     
+}
+
+exports.findAllRaces = function(next) {
+    Race.find({},function (err, races) {
+        next(err, races);
+    })
 }
 
 exports.findRace = function(name, date, next) {

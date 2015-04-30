@@ -31,7 +31,34 @@
     </div>
 </div>
 
+
+
 <!--TODO: This dropdown allows you to edit an existing race -->
+<div class="widget">
+    <form name="add-race" id="add-race" ng-submit="addNewRaceLeg()">
+        <select ng-model="currRace" ng-options="race as race.name for race in vm.races">
+            <option value="">Select a Race</option>
+        </select>
+        <div class="form-group">
+            <label for="number">Number</label>
+            <input type="number" id="number" name="number" ng-model="raceLegData.number"/>
+        </div>
+        <div class="form-group">
+            <label for="distance">Distance</label>
+            <input type="number" id="distance" name="distance" ng-model="raceLegData.distance"/>
+        </div>
+        <div class="form-group">
+            <label for="elevation">Elevation</label>
+            <input type="number" id="elevation" name="elevation" ng-model="raceLegData.elevation"/>
+        </div>
+        <div class="form-submit">
+            <input type="submit" value="Add New Leg" />
+        </div>
+    </form>
+    <div>
+        {{raceLegData}}
+    </div>
+</div>
 
 <a href="#/team">Team</a>
 <a href="#/race">Race Info</a>

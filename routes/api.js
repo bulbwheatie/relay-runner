@@ -54,7 +54,16 @@ router.get('/raceInfo', restrict, function(req, res, next) {
       if (err) {
          return err;
       }
-      return info;
+      return res.json(info);
+   })
+})
+
+router.get('/allRaces', restrict, function(req, res, next) {
+   relayService.findAllRaces(function(err, races) {
+      if (err) {
+         return err;
+      }
+      return res.json(races);
    })
 })
 
@@ -69,9 +78,11 @@ router.post('/admin/addRace', restrict, function(req, res, next) {
 })
 
 router.post('/admin/addRaceLeg', restrict, function(req, res, next) {
-   relayService.addRaceLet(req.body, function(err, leg) {
+   console.log("API: ADDRACELEG");
+   relayService.addRaceLeg(req.body, function(err, leg) {
       if(err) {
-         return err;
+         console.log("ADDRACELEG ERR");
+         return res.err;
       }
       return res.json(leg);
    });
