@@ -3,6 +3,7 @@ var router = express.Router();
 var restrict = require('../auth/restrict');
 var runnerService = require('../services/runner-service.js');
 var relayService = require('../services/relay-service.js');
+var userService = require('../services/user-service.js');
 
 router.post('/createRunner', restrict, function(req, res, next) {
    console.log("Attempting to add runner");
@@ -41,13 +42,13 @@ router.get('/allLegs', restrict, function(req, res, next) {
 });
 
 router.get('/allTeamLegs', restrict, function(req, res, next) {
-   relayService.findTeamLegs(req.race, req.date, req.team, function(err, teamLegs) {
+   relayService.findTeamLegs(req.user._id, function(err, teamLegs) {
       if(err) {
          return err;
       }
-      return teamLegs;
+      return res.json(teamLegs);
    })
-})
+});
 
 router.get('/raceInfo', restrict, function(req, res, next) {
    relayService.findRace(req.race, function(err, info) {
@@ -56,16 +57,29 @@ router.get('/raceInfo', restrict, function(req, res, next) {
       }
       return res.json(info);
    })
-})
+});
 
 router.get('/allRaces', restrict, function(req, res, next) {
    relayService.findAllRaces(function(err, races) {
+      console.log("Finding all races");
       if (err) {
          return err;
       }
       return res.json(races);
    })
-})
+});
+
+router.post('/registerForRace', restrict, function(req, res, next){
+   console.log("REGISTER FOR RACE: " + req.body._id);
+   userService.registerRace(req.user._id, req.body._id , function(err) {
+      console.log("registered for race");
+      if (err){
+         return err;
+      }
+      console.log("registered for race: success");
+      return res
+   });
+});
 
 router.post('/admin/addRace', restrict, function(req, res, next) {
    console.log("API: ADDRACE");
@@ -75,7 +89,7 @@ router.post('/admin/addRace', restrict, function(req, res, next) {
       }
       return res.json(race);
    });
-})
+});
 
 router.post('/admin/addRaceLeg', restrict, function(req, res, next) {
    console.log("API: ADDRACELEG");
@@ -86,5 +100,5 @@ router.post('/admin/addRaceLeg', restrict, function(req, res, next) {
       }
       return res.json(leg);
    });
-})
+});
 module.exports = router;

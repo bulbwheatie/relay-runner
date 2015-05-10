@@ -1,4 +1,10 @@
 <p>Here is a list of all the relay legs that need to be run</p>
+<div ng-repeat="raceLeg in vm.raceLegs">
+    <p ng-bind="raceLeg.order"></p>
+    <p ng-bing="raceLeg.distance"></p>
+    <p ng-bind="raceLeg.elevation"></p>
+    <p ng-bind="raceLeg.runner"></p>
+</div>
 <a href="#/team">Team</a>
 <a href="#/race">Race Info</a>
 <a href='#/race-legs'>Relay Legs</a>

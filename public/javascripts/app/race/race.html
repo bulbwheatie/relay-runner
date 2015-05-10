@@ -1,12 +1,21 @@
 <p>Here is some basic race info</p>
+<!-- If there is a race associated with this team, display that info. -->
+<!-- Otherwise, have a dropdown to register for a race -->
 <div>
-    <h3 ng-model="race.name"></h3>
-    <p ng-model-"race.date"></p>
-    <p ng-model-"race.location"></p>
-    <p ng-model-"race.total_mileage"></p>
-    <p ng-model-"race.website"></p>
-    <p ng-model-"race.description"></p>
+    <h3 ng-bind="vm.race.name"></h3>
+    <p ng-bind="vm.race.date"></p>
+    <p ng-bind="vm.race.location"></p>
+    <p ng-bind="vm.race.total_mileage"></p>
+    <p ng-bind="vm.race.website"></p>
+    <p ng-bind="vm.race.description"></p>
 </div>
+
+<h3>Register for a race!</h3>
+<select ng-model="currRace" ng-options="race as race.name for race in vm.allRaces">
+    <option value="">Select a Race</option>
+</select>
+<button ng-click="registerRace()">Register</button>
+<br>
 <a href="#/team">Team</a>
 <a href="#/race">Race Info</a>
 <a href='#/race-legs'>Relay Legs</a>

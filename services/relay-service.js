@@ -45,8 +45,8 @@ exports.findAllRaces = function(next) {
     })
 }
 
-exports.findRace = function(name, date, next) {
-    Race.findOne({name: name, date:date}, function(err, race){
+exports.findRace = function(raceId, next) {
+    Race.findOne({id: raceId}, function(err, race){
         next(err, race);
     });
 }
@@ -63,8 +63,9 @@ exports.findLeg = function(legID, next) {
     })
 }
 
-exports.findTeamLegs = function(raceName, date, team, next) {
-    TeamLeg.find({race:raceName, date:date, team: team}, function(err, teamLegs) {
+exports.findTeamLegs = function(team, next) {
+    console.log("Fetching all team legs for " + team);
+    TeamLeg.find({team: team}, function(err, teamLegs) {
         next(err, teamLegs);
     })
 }
