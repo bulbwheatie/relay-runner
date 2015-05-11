@@ -65,7 +65,7 @@ exports.findLeg = function(legID, next) {
 
 exports.findTeamLegs = function(team, next) {
     console.log("Fetching all team legs for " + team);
-    TeamLeg.find({team: team}).populate("leg")
+    TeamLeg.find({team: team}).populate("leg").populate("runner")
         .exec(function(err, teamLegs) {
             next(err, teamLegs);
         });
