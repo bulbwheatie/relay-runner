@@ -70,3 +70,13 @@ exports.findTeamLegs = function(team, next) {
             next(err, teamLegs);
         });
 }
+
+
+exports.assignRunnerToLeg = function(teamLeg, runner, next) {
+    console.log("Assigning runner to leg");
+    TeamLeg.update({_id: teamLeg}, {runner:runner}, function(err) {
+        next(err);
+    });
+    console.log("Updated runner");
+    next(null);
+}

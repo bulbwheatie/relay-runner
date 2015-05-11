@@ -4,7 +4,7 @@
     <p ng-bing="raceLeg.leg.distance"></p>
     <p ng-bind="raceLeg.leg.elevation"></p>
     <p ng-bind="raceLeg.runner"></p>
-    <select ng-model="chosen_runner" ng-options="runner as runner.name for runner in vm.runners">
+    <select ng-model="chosen_runner" ng-options="runner as runner.name for runner in vm.runners" ng-change="assignRunnerToLeg(chosen_runner, raceLeg._id)" >
         <option value="">Select a Runner</option>   
     </select>
     <br>

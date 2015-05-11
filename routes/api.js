@@ -50,6 +50,18 @@ router.get('/allTeamLegs', restrict, function(req, res, next) {
    })
 });
 
+router.post('/assignRunnerToLeg', restrict, function(req, res, next) {
+   console.log("Runner = " + req.body.runner);
+   console.log("TeamLeg = " + req.body.teamLeg);
+   relayService.assignRunnerToLeg(req.body.teamLeg, req.body.runner, function(err) {
+      if (err) {
+         return err;
+      }
+      console.log("Assigned runner");
+      return res.json();
+   } );
+});
+
 router.get('/raceInfo', restrict, function(req, res, next) {
    relayService.findRace(req.race, function(err, info) {
       if (err) {

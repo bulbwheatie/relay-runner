@@ -28,7 +28,7 @@
             })
             .error(function(err) {
                 console.log(err);
-            })
+            });
             
         //Registering for a race should also add in all the team legs
         $scope.registerRace = function() {

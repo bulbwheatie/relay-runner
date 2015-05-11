@@ -6,7 +6,7 @@ var teamLegSchema = new Schema ({
    team: {type: String, required: 'Please provide a team'},
    race: {type: String, required: 'Please provide a race'},
    year: {type: Date},
-   runner: {type: String},
+   runner: {type: Schema.Types.ObjectId, ref: 'Runner'},
    timeEstimate: {type: Number},
    timeActual: {type: Number},
    completed: {type: Boolean}
