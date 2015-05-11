@@ -21,6 +21,15 @@
             .error( function(err) {
                 console.log(err);
             });
+            
+        $http.get('api/allRunners')
+            .success( function(response) {
+                console.log(response);
+                vm.runners = response;
+            })
+            .error( function(err) {
+                console.log(err);
+            });
     };
         
 }());
