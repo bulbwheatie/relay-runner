@@ -6,3 +6,41 @@ body {
 a {
   color: #00B7FF;
 }
+
+/*
+ * Blog name and description
+ */
+
+.banner-header {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  height: 200px;
+}
+
+.banner-title {
+  margin-top: 25px;
+  margin-bottom: 0;
+  font-size: 40px;
+  font-weight: normal;
+}
+
+.banner-description {
+  font-size: 20px;
+  color: #999;
+}
+
+.banner-login {
+  margin-top: 25px;
+  float: right;
+}
+
+
+
+.lander-content {
+  font-size: 30px;
+}
+
+
+.new-entry {
+  display: block;
+}

@@ -7,26 +7,26 @@
     </li>
 </ul>
 
-<div class="widget">
+<div class="widget row">
     <form name="add-runner" id="add-runner" ng-submit="processForm()">
-        <div class="form-group">
+        <div class="form-group col-xs-2">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" ng-model="formData.name"/>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-2">
             <label for="age">Age</label>
             <input type="number" id="age" name="age" ng-model="formData.age"/>
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-2">
             <label for="gender">Gender</label>
             <input TYPE="Radio" Name="Gender" Value="Male" ng-model="formData.gender">Male
             <input TYPE="Radio" Name="Gender" Value="Female" ng-model="formData.gender">Female
         </div>
-        <div class="form-group">
+        <div class="form-group col-xs-2">
             <label for="phone">Phone</label>
             <input type="number" id="phone" name="phone" ng-model="formData.phone"/>
         </div>
-        <div class="form-submit">
+        <div class="form-submit col-xs-2">
             <input type="submit" value="Add New Runner" />
         </div>
     </form>
@@ -34,8 +34,3 @@
         {{formData}}
     </div>
 </div>
-
-<!-- Display a form to add new runners --> 
-<a href="#/team">Team</a>
-<a href="#/race">Race Info</a>
-<a href='#/race-legs'>Relay Legs</a>

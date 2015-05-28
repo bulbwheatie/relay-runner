@@ -38,6 +38,13 @@ exports.registerRace = function(user_id, race, next) {
         next(err);
     });
     
+    //Remove all legs that are already associated with this team
+    TeamLeg.remove({team:user_id}, function(err) {
+        if (err) {
+            next(err); 
+        }
+    });
+    
     console.log("Adding team legs");
     //Add team legs for each leg associated with this race
     Leg.find({raceId:race}, function(err, raceLegs) {

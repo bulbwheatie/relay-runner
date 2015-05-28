@@ -2,11 +2,24 @@
 <html>
   <head>
     <title>Relay Runner {{#if title}} - {{title}} {{/if}}</title>
+    <link  rel="stylesheet" href="/bower/bootstrap/dist/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
   </head>
 
   <body>
-    <h1>Relay Runner</h1>
-    {{{body}}}
+      <div class="container">
+
+        <div class="banner-header">
+          <div class="col-md-4 banner-name">
+            <h1 class="banner-title">Relay Runner</h1>
+            <p class="banner-description">by Perch Perch</p>
+          </div>
+          <div class="col-md-2 banner-login">
+            <p><a href="/users/login">Login</a> &nbsp&nbsp <a href="/users/create">Sign up</a>
+          </div>
+        </div>
+        {{{body}}}
+    </div>
   </body>
 </html>
